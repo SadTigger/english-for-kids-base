@@ -1,0 +1,30 @@
+/* Navigation link styles from https://github.com/gopinav/Angular-Tutorials*/
+nav {
+  width: 254px;
+  height: 54px;
+  display: flex;
+  flex-direction: column;
+	a {
+		padding: 5px 10px;
+		text-decoration: none;
+		margin-top: 10px;
+		display: inline-block;
+		background-color: #eee;
+		border-radius: 4px;
+		&:visited {
+			color: #607D8B;
+		}
+		&:hover {
+			color: #039be5;
+			background-color: #CFD8DC;
+		}
+	}
+	a.active {
+		color: #039be5;
+	}
+}
+a {
+	&:link {
+		color: #607D8B;
+	}
+}
