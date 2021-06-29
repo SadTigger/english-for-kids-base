@@ -1,3 +1,8 @@
+$white-color: #FFFFFF;
+$app-background-color: #EBE6E4;
+$linear-top-color: #475E6A;
+$linear-bottom-color: #6C8E5F;
+
 main {
   display: flex;
   flex-direction: column;
@@ -13,20 +18,20 @@ main {
   width: 248px;
   height: 60px;
   background: transparent;
-  border: 2px solid #FFFFFF;
+  border: 2px solid $white-color;
   box-sizing: border-box;
   border-radius: 5px;
   font-family: Roboto;
   font-weight: normal;
   font-size: 22px;
   line-height: 26px;
-  color: #FFFFFF;
+  color: $white-color;
 }
 
 mat-sidenav-container {
   height: 1024px;
   width: 100%;
-  background-color: #EBE6E4;
+  background-color: $app-background-color;
 }
 
 mat-sidenav, mat-sidenav-content {
@@ -39,5 +44,5 @@ mat-sidenav {
   align-items: center;
   width: 375px;
   height: 100%;
-  background: linear-gradient(180deg, #475E6A 0%, #6C8E5F 100%);
+  background: linear-gradient(180deg, $linear-top-color 0%, $linear-bottom-color 100%);
 }
