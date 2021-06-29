@@ -17,6 +17,7 @@ import { CardComponent } from './components/card/card.component';
 import { ActionSetAComponent } from './pages/action-set-a/action-set-a.component';
 import { ActionSetBComponent } from './pages/action-set-b/action-set-b.component';
 import { ActionSetCComponent } from './pages/action-set-c/action-set-c.component';
+import { AdjectiveComponent } from './pages/adjective/adjective.component';
 import { FruitsComponent } from './pages/fruits/fruits.component';
 
 @NgModule({
@@ -34,6 +35,7 @@ import { FruitsComponent } from './pages/fruits/fruits.component';
     ActionSetAComponent,
     ActionSetBComponent,
     ActionSetCComponent,
+    AdjectiveComponent,
     FruitsComponent,
   ],
   imports: [
