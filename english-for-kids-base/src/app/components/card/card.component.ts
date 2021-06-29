@@ -7,9 +7,10 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CardComponent implements OnInit {
   isFlipped: boolean = false;
-  @Input() englishText?: string;
-  @Input() russianText?: string;
+  @Input() word?: string;
+  @Input() translation?: string;
   @Input() image?: string;
+  @Input() audioSrc?: string;
 
   constructor() { }
 

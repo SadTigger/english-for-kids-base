@@ -3,13 +3,13 @@
     <div class="card-back">
       <div class="card-image" *ngIf="image" [style.backgroundImage]="'url('+ image +')'"></div>
       <div class="card-footer">
-        <span *ngIf="russianText">{{ russianText }}</span>
+        <span *ngIf="translation">{{ translation }}</span>
       </div>
     </div>
     <div class="card-front">
       <div class="card-image" *ngIf="image" [style.backgroundImage]="'url('+ image +')'"></div>
       <div class="card-footer">
-        <span *ngIf="englishText">{{ englishText }}</span>
+        <span *ngIf="word">{{ word }}</span>
         <button mat-icon-button (click)="cardFlip()">
           <mat-icon>sync</mat-icon>
         </button>
