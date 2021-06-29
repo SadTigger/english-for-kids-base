@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent implements OnInit {
-  isFlipped: boolean = true;
+  isFlipped: boolean = false;
   @Input() englishText?: string;
   @Input() russianText?: string;
   @Input() image?: string;
@@ -17,6 +17,9 @@ export class CardComponent implements OnInit {
   }
 
   cardFlip(): void {
-    this.isFlipped = !this.isFlipped
+    // this.isFlipped = !this.isFlipped
+    if (this.isFlipped) return;
+
+    this.isFlipped = true;
   }
 }

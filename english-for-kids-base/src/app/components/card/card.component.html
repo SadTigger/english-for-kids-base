@@ -1,10 +1,19 @@
-<div class="card-container" [class.flipped]="isFlipped" (click)="cardFlip()">
+<div class="card-container" [class.flipped]="isFlipped" (mouseleave)="isFlipped=false">
   <div class="card">
     <div class="card-back">
-      <span *ngIf="russianText">{{ russianText }}</span>
+      <div class="card-image" *ngIf="image" [style.backgroundImage]="'url('+ image +')'"></div>
+      <div class="card-footer">
+        <span *ngIf="russianText">{{ russianText }}</span>
+      </div>
     </div>
     <div class="card-front">
-      <span *ngIf="englishText">{{ englishText }}</span>
+      <div class="card-image" *ngIf="image" [style.backgroundImage]="'url('+ image +')'"></div>
+      <div class="card-footer">
+        <span *ngIf="englishText">{{ englishText }}</span>
+        <button mat-icon-button (click)="cardFlip()">
+          <mat-icon>sync</mat-icon>
+        </button>
+      </div>
     </div>
   </div>
 </div>

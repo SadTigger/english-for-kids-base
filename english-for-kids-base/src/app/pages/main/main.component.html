@@ -3,7 +3,9 @@
   <div class="container">
     <app-card *ngFor="let card of cards"
       [englishText]="card.englishText"
-      [russianText]="card.russianText">
+      [russianText]="card.russianText"
+      [image]="card.image"
+      >
     </app-card>
   </div>
 </section>

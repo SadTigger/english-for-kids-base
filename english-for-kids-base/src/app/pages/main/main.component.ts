@@ -13,15 +13,14 @@ export interface CardsContent {
 })
 
 export class MainComponent {
-  test: string = 'test-text'
   cards: CardsContent[] = [
-    {englishText: 'apple', russianText: 'яблоко'},
-    {englishText: 'banana', russianText: 'банан'},
-    {englishText: 'apple', russianText: 'яблоко'},
-    {englishText: 'banana', russianText: 'банан'},
-    {englishText: 'apple', russianText: 'яблоко'},
-    {englishText: 'banana', russianText: 'банан'},
-    {englishText: 'apple', russianText: 'яблоко'},
-    {englishText: 'banana', russianText: 'банан'},
+    {englishText: 'apple', russianText: 'яблоко', image: 'assets/images/apple.png'},
+    {englishText: 'banana', russianText: 'банан', image: 'assets/images/banana.png'},
+    {englishText: 'apple', russianText: 'яблоко', image: 'assets/images/apple.png'},
+    {englishText: 'banana', russianText: 'банан', image: 'assets/images/banana.png'},
+    {englishText: 'apple', russianText: 'яблоко', image: 'assets/images/apple.png'},
+    {englishText: 'banana', russianText: 'банан', image: 'assets/images/banana.png'},
+    {englishText: 'apple', russianText: 'яблоко', image: 'assets/images/apple.png'},
+    {englishText: 'banana', russianText: 'банан', image: 'assets/images/banana.png'},
   ]
 }

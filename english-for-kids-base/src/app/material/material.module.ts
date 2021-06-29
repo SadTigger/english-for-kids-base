@@ -8,10 +8,12 @@ import { MatTableModule } from '@angular/material/table';
 import { CdkTableModule } from '@angular/cdk/table';
 // used https://material.angular.io/components/sort/overview
 import {MatSortModule} from '@angular/material/sort';
+// used https://material.angular.io/components/button/overview
+import {MatButtonModule} from '@angular/material/button';
 
 
 
-const MaterialComponents = [MatSlideToggleModule, MatIconModule, MatSidenavModule, MatTableModule, CdkTableModule, MatSortModule];
+const MaterialComponents = [MatSlideToggleModule, MatIconModule, MatSidenavModule, MatTableModule, CdkTableModule, MatSortModule, MatButtonModule];
 
 @NgModule({
   imports: [MaterialComponents],
