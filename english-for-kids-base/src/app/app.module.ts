@@ -14,6 +14,7 @@ import { StatisticsTableComponent } from './components/statistics-table/statisti
 import { HeaderComponent } from './components/header/header.component';
 import { SlideToggleComponent } from './components/slide-toggle/slide-toggle.component';
 import { CardComponent } from './components/card/card.component';
+import { ActionSetAComponent } from './pages/action-set-a/action-set-a.component';
 import { FruitsComponent } from './pages/fruits/fruits.component';
 
 @NgModule({
@@ -28,6 +29,7 @@ import { FruitsComponent } from './pages/fruits/fruits.component';
     HeaderComponent,
     SlideToggleComponent,
     CardComponent,
+    ActionSetAComponent,
     FruitsComponent,
   ],
   imports: [
