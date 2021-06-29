@@ -19,6 +19,7 @@ import { ActionSetBComponent } from './pages/action-set-b/action-set-b.component
 import { ActionSetCComponent } from './pages/action-set-c/action-set-c.component';
 import { AdjectiveComponent } from './pages/adjective/adjective.component';
 import { AnimalSetAComponent } from './pages/animal-set-a/animal-set-a.component';
+import { AnimalSetBComponent } from './pages/animal-set-b/animal-set-b.component';
 import { FruitsComponent } from './pages/fruits/fruits.component';
 
 @NgModule({
@@ -38,6 +39,7 @@ import { FruitsComponent } from './pages/fruits/fruits.component';
     ActionSetCComponent,
     AdjectiveComponent,
     AnimalSetAComponent,
+    AnimalSetBComponent,
     FruitsComponent,
   ],
   imports: [
