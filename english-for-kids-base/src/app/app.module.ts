@@ -13,6 +13,7 @@ import { MaterialModule } from './material/material.module';
 import { StatisticsTableComponent } from './components/statistics-table/statistics-table.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SlideToggleComponent } from './components/slide-toggle/slide-toggle.component';
+import { CardComponent } from './components/card/card.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { SlideToggleComponent } from './components/slide-toggle/slide-toggle.com
     StatisticsTableComponent,
     HeaderComponent,
     SlideToggleComponent,
+    CardComponent,
   ],
   imports: [
     BrowserModule,
