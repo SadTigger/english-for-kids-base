@@ -6,6 +6,11 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { MainComponent } from './pages/main/main.component';
+import { AsideMenuComponent } from './components/aside-menu/aside-menu.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { MaterialModule } from './material/material.module';
+import { StatisticsTableComponent } from './components/statistics-table/statistics-table.component';
 
 @NgModule({
   declarations: [
@@ -14,10 +19,15 @@ import { MainComponent } from './pages/main/main.component';
     routingComponents,
     PageNotFoundComponent,
     MainComponent,
+    AsideMenuComponent,
+    StatisticsTableComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

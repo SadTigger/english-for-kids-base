@@ -1,0 +1,32 @@
+:host ::ng-deep .mat-sort-header-container {
+  // used https://stackoverflow.com/questions/52316898/how-do-i-center-angular-material-table-column-headers-and-mat-cell-content
+  display: flex;
+  justify-content: center;
+}
+
+table {
+  width: 100%;
+  height: 50%;
+  background-color: #475E6A;
+  color: #D9DCD8;
+  font-size: 22px;
+  line-height: 26px;
+  border-collapse: collapse;
+}
+
+th {
+  color: #D7DCD6;
+}
+
+th.mat-sort-header {
+  background-color: #6C8E5F;
+  height: 40px;
+}
+
+th:hover {
+  background-color: #A7816F;
+}
+
+td {
+  text-align: center;
+}

@@ -1,0 +1,43 @@
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 800px;
+  background: linear-gradient(180deg, #0099AE 0%, #00BF82 100%);
+  margin-bottom: 40px;
+}
+
+.login-button {
+  width: 248px;
+  height: 60px;
+  background: transparent;
+  border: 2px solid #FFFFFF;
+  box-sizing: border-box;
+  border-radius: 5px;
+  font-family: Roboto;
+  font-weight: normal;
+  font-size: 22px;
+  line-height: 26px;
+  color: #FFFFFF;
+}
+
+mat-sidenav-container {
+  height: 1024px;
+  width: 100%;
+  background-color: #EBE6E4;
+}
+
+mat-sidenav, mat-sidenav-content {
+  padding: 16px;
+}
+
+mat-sidenav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 375px;
+  height: 100%;
+  background: linear-gradient(180deg, #475E6A 0%, #6C8E5F 100%);
+}
