@@ -15,6 +15,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { SlideToggleComponent } from './components/slide-toggle/slide-toggle.component';
 import { CardComponent } from './components/card/card.component';
 import { ActionSetAComponent } from './pages/action-set-a/action-set-a.component';
+import { ActionSetBComponent } from './pages/action-set-b/action-set-b.component';
 import { FruitsComponent } from './pages/fruits/fruits.component';
 
 @NgModule({
@@ -30,6 +31,7 @@ import { FruitsComponent } from './pages/fruits/fruits.component';
     SlideToggleComponent,
     CardComponent,
     ActionSetAComponent,
+    ActionSetBComponent,
     FruitsComponent,
   ],
   imports: [
