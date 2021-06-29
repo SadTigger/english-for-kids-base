@@ -1,0 +1,19 @@
+$gold-color: #FFD700;
+
+
+header {
+  width: 90%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.grade-row {
+  display: flex;
+  justify-content: flex-end;
+  width: 85%;
+  overflow: hidden;
+}
+
+.gold {
+  color: $gold-color;
+}

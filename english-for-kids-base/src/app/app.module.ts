@@ -11,6 +11,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { MaterialModule } from './material/material.module';
 import { StatisticsTableComponent } from './components/statistics-table/statistics-table.component';
+import { HeaderComponent } from './components/header/header.component';
+import { SlideToggleComponent } from './components/slide-toggle/slide-toggle.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { StatisticsTableComponent } from './components/statistics-table/statisti
     MainComponent,
     AsideMenuComponent,
     StatisticsTableComponent,
+    HeaderComponent,
+    SlideToggleComponent,
   ],
   imports: [
     BrowserModule,
