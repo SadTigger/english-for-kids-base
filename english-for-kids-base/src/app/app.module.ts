@@ -21,6 +21,8 @@ import { AdjectiveComponent } from './pages/adjective/adjective.component';
 import { AnimalSetAComponent } from './pages/animal-set-a/animal-set-a.component';
 import { AnimalSetBComponent } from './pages/animal-set-b/animal-set-b.component';
 import { FruitsComponent } from './pages/fruits/fruits.component';
+import { CardsService } from './cards.service';
+import { CategoryCardComponent } from './components/category-card/category-card.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,7 @@ import { FruitsComponent } from './pages/fruits/fruits.component';
     AnimalSetAComponent,
     AnimalSetBComponent,
     FruitsComponent,
+    CategoryCardComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,7 +52,7 @@ import { FruitsComponent } from './pages/fruits/fruits.component';
     FormsModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [CardsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

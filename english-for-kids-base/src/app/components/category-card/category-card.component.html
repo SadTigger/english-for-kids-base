@@ -1,0 +1,10 @@
+<div class="card-container" [routerLink]="link">
+  <div class="card">
+      <div class="category-cover">
+        <div class="card-image" *ngIf="image" [style.backgroundImage]="'url('+ image +')'"></div>
+      </div>
+      <div class="card-footer">
+        <span *ngIf="name">{{ name }}</span>
+      </div>
+  </div>
+</div>

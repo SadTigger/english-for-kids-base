@@ -1,11 +1,11 @@
-<!-- <section>
+<section>
   <app-header></app-header>
   <div class="container">
-    <app-card *ngFor="let card of cards"
-      [englishText]="card.englishText"
-      [russianText]="card.russianText"
-      [image]="card.image"
+    <app-category-card *ngFor="let category of categories"
+      [name]="category.name"
+      [link]="category.link"
+      [image]="category.image"
       >
-    </app-card>
+    </app-category-card>
   </div>
-</section> -->
+</section>
