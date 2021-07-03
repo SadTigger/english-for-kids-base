@@ -10,10 +10,26 @@ import { CdkTableModule } from '@angular/cdk/table';
 import {MatSortModule} from '@angular/material/sort';
 // used https://material.angular.io/components/button/overview
 import {MatButtonModule} from '@angular/material/button';
+// https://www.techiediaries.com/angular-material-login-form-modal-dialog/
+import {MatInputModule} from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatDialogModule } from '@angular/material/dialog';
 
 
-
-const MaterialComponents = [MatSlideToggleModule, MatIconModule, MatSidenavModule, MatTableModule, CdkTableModule, MatSortModule, MatButtonModule];
+const MaterialComponents = [
+  MatSlideToggleModule,
+  MatIconModule,
+  MatSidenavModule,
+  MatTableModule,
+  CdkTableModule,
+  MatSortModule,
+  MatButtonModule,
+  MatInputModule,
+  MatCardModule,
+  MatFormFieldModule,
+  MatDialogModule
+];
 
 @NgModule({
   imports: [MaterialComponents],

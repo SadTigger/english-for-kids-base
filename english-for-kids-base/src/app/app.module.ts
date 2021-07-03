@@ -23,6 +23,7 @@ import { AnimalSetBComponent } from './pages/animal-set-b/animal-set-b.component
 import { FruitsComponent } from './pages/fruits/fruits.component';
 import { CardsService } from './cards.service';
 import { CategoryCardComponent } from './components/category-card/category-card.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -44,7 +45,9 @@ import { CategoryCardComponent } from './components/category-card/category-card.
     AnimalSetBComponent,
     FruitsComponent,
     CategoryCardComponent,
+    LoginComponent,
   ],
+  entryComponents: [ LoginComponent ],
   imports: [
     BrowserModule,
     AppRoutingModule,

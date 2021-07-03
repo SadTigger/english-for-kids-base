@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-aside-menu',
@@ -7,13 +9,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AsideMenuComponent implements OnInit {
   isMenuOpen: boolean = false;
-  constructor() { }
+  constructor(private  dialog:  MatDialog) { }
 
   ngOnInit(): void {
   }
 
   onSidenavClick(): void {
     this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  openLoginDialog(): void {
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '812px';
+    dialogConfig.height = '571px';
+    this.dialog.open(LoginComponent, dialogConfig);
   }
 
 }

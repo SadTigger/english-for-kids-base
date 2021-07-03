@@ -1,0 +1,46 @@
+<mat-card>
+  <mat-card-header>
+      <mat-card-title>Login</mat-card-title>
+  </mat-card-header>
+  <form>
+      <mat-card-content>
+      <p>
+        <mat-form-field [style.width.%]="80">
+          <mat-label>login</mat-label>
+          <input
+            matInput
+            placeholder="your email"
+            [(ngModel)]="email"
+            type="email"
+            name="email"
+            required
+          >
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field [style.width.%]="80">
+          <mat-label>password</mat-label>
+          <input
+            matInput
+            placeholder="your password"
+            [(ngModel)]="password"
+            type="password"
+            name="password"
+            required
+          >
+        </mat-form-field>
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button  class="popup-button" color="primary" (click)="cancel()">Cancel</button>
+      <button  class="popup-button" type="submit" color="primary" (click)="login()" >Login</button>
+    </mat-card-actions>
+  </form>
+</mat-card>
+
+<!--
+  used materials:
+  https://material.angular.io/components/dialog/examples
+  https://www.techiediaries.com/angular-material-login-form-modal-dialog/
+  https://stackblitz.com/angular/nnkyqlmyqod?file=app%2Fform-field-appearance-example.html
+-->

@@ -1,7 +1,7 @@
 <mat-sidenav-container>
   <mat-sidenav  autoFocus="false" mode="side" [(opened)]="isMenuOpen" class="sidenav">
     <app-navbar></app-navbar>
-    <button class="login-button" mat-button>Login</button>
+    <button class="login-button" mat-button (click)="openLoginDialog()">Login</button>
   </mat-sidenav>
   <mat-sidenav-content>
     <!-- <button mat-button (click)="opened=!opened">Toggle Opened</button> -->
