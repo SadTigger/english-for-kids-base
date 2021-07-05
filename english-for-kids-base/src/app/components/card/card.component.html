@@ -1,15 +1,15 @@
 <div class="card-container" [class.flipped]="isFlipped" (mouseleave)="isFlipped=false">
   <div class="card">
-    <div class="card-back">
+    <div class="card-back" (click)="$event.preventDefault();">
       <div class="card-image" *ngIf="image" [style.backgroundImage]="'url('+ image +')'"></div>
-      <div class="card-footer">
+      <div class="card-footer" [ngStyle]="{'pointer-events': 'none'}">
         <span *ngIf="translation">{{ translation }}</span>
       </div>
     </div>
     <div class="card-front">
-      <div class="card-image" *ngIf="image" [style.backgroundImage]="'url('+ image +')'"></div>
+      <div class="card-image" *ngIf="image && mode == 'play'" [style.backgroundImage]="'url('+ image +')'" (click)="playAudio($event)"></div>
       <div class="card-footer">
-        <span *ngIf="word">{{ word }}</span>
+        <span *ngIf="word" [ngStyle]="{'pointer-events': 'none'}">{{ word }}</span>
         <button mat-icon-button (click)="cardFlip()">
           <mat-icon>sync</mat-icon>
         </button>
