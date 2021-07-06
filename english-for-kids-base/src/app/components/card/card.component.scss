@@ -48,7 +48,7 @@ $card-border-color: blue;
 }
 
 .card-back {
-  z-index: 2;
+  z-index: 3;
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
   transform: rotateY(180deg);
@@ -56,6 +56,9 @@ $card-border-color: blue;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+  & .card-image {
+    z-index: 4;
+  }
 }
 
 .card-front {
@@ -64,6 +67,10 @@ $card-border-color: blue;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
+
+  & .card-image {
+    z-index: 2;
+  }
 }
 
 

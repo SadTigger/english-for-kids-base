@@ -24,6 +24,7 @@ import { FruitsComponent } from './pages/fruits/fruits.component';
 import { CardsService } from './cards.service';
 import { CategoryCardComponent } from './components/category-card/category-card.component';
 import { LoginComponent } from './components/login/login.component';
+import { GradeStarComponent } from './components/grade-star/grade-star.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { LoginComponent } from './components/login/login.component';
     FruitsComponent,
     CategoryCardComponent,
     LoginComponent,
+    GradeStarComponent,
   ],
   entryComponents: [ LoginComponent ],
   imports: [
