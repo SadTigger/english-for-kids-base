@@ -1,5 +1,5 @@
 <div class="card-container" [routerLink]="link">
-  <div class="card">
+  <div class="card" [ngStyle]="{'background': background}">
       <div class="category-cover">
         <div class="card-image" *ngIf="image" [style.backgroundImage]="'url('+ image +')'"></div>
       </div>

@@ -38,7 +38,7 @@ export class CardComponent implements DoCheck {
   }
 
   playAudio(event: Event): void {
-    console.log('event.target', event.target);
+    // console.log('event.target', event.target);
     event.stopPropagation();
     if (this.isPlayed) return;
     this.isPlayed = true;
@@ -55,9 +55,9 @@ export class CardComponent implements DoCheck {
 
   game() {
     if (this.mode === "train") return;
-    console.log('this.audioSrc', this.audioSrc);
+    // console.log('this.audioSrc', this.audioSrc);
     this.answer = this.audioSrc === 'assets/audio/cry.mp3';
-    console.log('this.answer', this.answer);
+    // console.log('this.answer', this.answer);
     const newStar: Stars = {};
     if (!this.answer)  {
       newStar.color = 'warn';
