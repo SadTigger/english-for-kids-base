@@ -11,9 +11,7 @@ import { GameModeService } from 'src/app/game-mode.service';
 export class SlideToggleComponent implements OnInit, DoCheck {
   isChecked?: boolean = false;
   mode!: string;
-  constructor(private _gameMode: GameModeService) {
-    console.log('render slide toggle');
-  }
+  constructor(private _gameMode: GameModeService) {}
   ngOnInit() {
     this.mode = this._gameMode.getGameMode();
     this.isChecked = this.mode === 'train' ? false : true;
