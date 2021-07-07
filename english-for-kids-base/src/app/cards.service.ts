@@ -69,8 +69,8 @@ export class CardsService {
       {word: 'dolphin', translation: 'дельфин', image: 'assets/img/dolphin.jpg', audioSrc: 'assets/audio/dolphin.mp3'},
     ],
     [
-      {word: 'apple', translation: 'яблоко', image: 'assets/images/apple.png', audioSrc: 'assets/audio/angry.mp3'},
-      {word: 'banana', translation: 'банан', image: 'assets/images/banana.png', audioSrc: 'assets/audio/banana.mp3'},
+      {word: 'apple', translation: 'яблоко', image: 'assets/img/apple.png', audioSrc: 'assets/audio/angry.mp3'},
+      {word: 'banana', translation: 'банан', image: 'assets/img/banana.png', audioSrc: 'assets/audio/banana.mp3'},
       {word: 'cherries', translation: 'вишня', image: 'assets/img/cherries.png', audioSrc: 'assets/audio/cherries.mp3'},
       {word: 'grapes', translation: 'виноград', image: 'assets/img/grapes.png', audioSrc: 'assets/audio/grapes.mp3'},
       {word: 'peach', translation: 'персик', image: 'assets/img/peach.png', audioSrc: 'assets/audio/peach.mp3'},
@@ -101,7 +101,7 @@ export class CardsService {
       {id: 5, name: "Animals (set B)", link: "/animal-set-a", image: "assets/img/bird.jpg"},
       {id: 6, name: "Family members", link: "/family", image: "assets/img/grandfather.jpg"},
       {id: 7, name: "Toys", link: "/toys", image: "assets/img/cat.jpg"},
-      {id: 8, name: "Fruits", link: "/fruits", image: "assets/images/apple.png"}
+      {id: 8, name: "Fruits", link: "/fruits", image: "assets/img/apple.png"}
     ]
   }
 
