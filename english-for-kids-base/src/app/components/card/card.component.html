@@ -14,11 +14,10 @@
     <div class="card-front" [ngStyle]="{
         'background-image': mode === 'play' ? 'url('+ image +')' : 'none'
       }"
-      (click)="game()"
+      (click)="mode === 'play' ? game() : playAudio($event)"
     >
       <div class="card-image"
         [ngStyle]="{'background-image': mode === 'train' ? 'url('+ image +')' : 'none', 'pointer-events': 'none'}"
-        (click)="playAudio($event)"
       ></div>
       <div class="card-footer" *ngIf="mode === 'train'">
         <span *ngIf="word" [ngStyle]="{'pointer-events': 'none'}">{{ word }}</span>
