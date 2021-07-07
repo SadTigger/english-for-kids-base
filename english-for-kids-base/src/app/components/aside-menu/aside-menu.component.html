@@ -8,6 +8,6 @@
       <mat-icon>{{ isMenuOpen ? 'menu_open' : 'menu' }}</mat-icon>
     </button>
     <router-outlet></router-outlet>
-    <app-game-controls></app-game-controls>
+    <app-game-controls *ngIf="mode === 'play'"></app-game-controls>
   </mat-sidenav-content>
 </mat-sidenav-container>

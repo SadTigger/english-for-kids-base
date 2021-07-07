@@ -20,7 +20,7 @@ export class CardComponent implements DoCheck {
   errorSound: string = 'assets/audio/error.wav'
   successSound: string = 'assets/audio/success.wav'
   answer!: boolean;
-  mode!: typeGameMode;
+  mode: typeGameMode;
   condition: boolean = true;
   currentWord?: string;
   active: boolean;

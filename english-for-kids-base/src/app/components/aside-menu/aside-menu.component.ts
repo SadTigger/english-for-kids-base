@@ -1,5 +1,7 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { GameModeService } from 'src/app/game-mode.service';
+import { typeGameMode } from 'src/app/shared/game-mode';
 import { LoginComponent } from '../login/login.component';
 
 @Component({
@@ -9,12 +11,17 @@ import { LoginComponent } from '../login/login.component';
 })
 export class AsideMenuComponent implements OnInit, DoCheck {
   isMenuOpen: boolean = false;
+  mode: typeGameMode;
 
-  constructor(private  dialog:  MatDialog) {}
+  constructor(private  dialog:  MatDialog, private _gameMode: GameModeService) {
+    this.mode = this._gameMode.getGameMode();
+  }
 
   ngOnInit(){}
 
-  ngDoCheck() {}
+  ngDoCheck() {
+    this.mode = this._gameMode.getGameMode();
+  }
 
   onSidenavClick(): void {
     this.isMenuOpen = !this.isMenuOpen;
