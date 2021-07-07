@@ -77,6 +77,15 @@ export class CardsService {
       {word: 'lemon', translation: 'лимон', image: 'assets/img/lemon.png', audioSrc: 'assets/audio/lemon.mp3'},
       {word: 'orange', translation: 'апельсин', image: 'assets/img/orange.png', audioSrc: 'assets/audio/orange.mp3'},
       {word: 'pear', translation: 'груша', image: 'assets/img/pear.png', audioSrc: 'assets/audio/pear.mp3'},
+    ],[
+      {word: 'mother', translation: 'мама', image: 'assets/img/mother.jpg', audioSrc: 'assets/audio/mother.mp3'},
+      {word: 'father', translation: 'папа', image: 'assets/img/father.jpg', audioSrc: 'assets/audio/father.mp3'},
+      {word: 'brother', translation: 'брат', image: 'assets/img/brother.jpg', audioSrc: 'assets/audio/brother.mp3'},
+      {word: 'sister', translation: 'сестра', image: 'assets/img/sister.jpeg', audioSrc: 'assets/audio/sister.mp3'},
+      {word: 'grandmother', translation: 'бабушка', image: 'assets/img/grandmother.jpg', audioSrc: 'assets/audio/grandmother.mp3'},
+      {word: 'grandfather', translation: 'дедушка', image: 'assets/img/grandfather.jpg', audioSrc: 'assets/audio/grandfather.mp3'},
+      {word: 'uncle', translation: 'дядя', image: 'assets/img/uncle.jpg', audioSrc: 'assets/audio/uncle.mp3'},
+      {word: 'aunt', translation: 'тётя', image: 'assets/img/aunt.jpg', audioSrc: 'assets/audio/aunt.mp3'},
     ],
   ]
 

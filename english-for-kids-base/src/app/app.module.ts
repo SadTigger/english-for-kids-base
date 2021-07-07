@@ -28,6 +28,7 @@ import { GradeStarComponent } from './components/grade-star/grade-star.component
 import { StartGameButtonComponent } from './components/start-game-button/start-game-button.component';
 import { GameControlsComponent } from './components/game-controls/game-controls.component';
 import { RepeatWordButtonComponent } from './components/repeat-word-button/repeat-word-button.component';
+import { FamilyComponent } from './pages/family/family.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { RepeatWordButtonComponent } from './components/repeat-word-button/repea
     StartGameButtonComponent,
     GameControlsComponent,
     RepeatWordButtonComponent,
+    FamilyComponent,
   ],
   entryComponents: [ LoginComponent ],
   imports: [
