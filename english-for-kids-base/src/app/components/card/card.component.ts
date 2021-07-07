@@ -1,7 +1,9 @@
 import { Component, Input, Output, DoCheck } from '@angular/core';
 import { GameLogicService } from 'src/app/game-logic.service';
 import { GameModeService } from 'src/app/game-mode.service';
+import { GameStatusService } from 'src/app/game-status.service';
 import { typeGameMode } from 'src/app/shared/game-mode';
+import { GameControlsComponent } from '../game-controls/game-controls.component';
 
 @Component({
   selector: 'app-card',
@@ -22,16 +24,19 @@ export class CardComponent implements DoCheck {
   condition: boolean = true;
   currentWord?: string;
   active: boolean;
+  isGameStarted!: boolean;
 
-  constructor(private _gameMode: GameModeService, private _gameLogic: GameLogicService) {
+  constructor(private _gameMode: GameModeService, private _gameLogic: GameLogicService, private _gameStatus: GameStatusService) {
     this.mode = this._gameMode.getGameMode();
     this.active = true;
+    this.isGameStarted = this._gameStatus.getGameStatus();
   }
 
   ngDoCheck() {
     this.condition = this.mode === 'play';
     this.mode = this._gameMode.getGameMode();
     this.currentWord = this._gameLogic.getCurrentWord();
+    this.isGameStarted = this._gameStatus.getGameStatus();
   }
 
   cardFlip(event: Event): void {
@@ -57,7 +62,7 @@ export class CardComponent implements DoCheck {
 
   game() {
     if (this.mode === "train") return;
-    console.log('this card is: ', this);
+    if (!this.isGameStarted) return;
     this.answer = this.audioSrc === this.currentWord ;
     this._gameLogic.game(this, this.audioSrc);
   }

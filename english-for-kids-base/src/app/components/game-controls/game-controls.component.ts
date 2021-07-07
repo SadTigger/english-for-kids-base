@@ -2,6 +2,7 @@ import { Component, DoCheck, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { GameLogicService } from 'src/app/game-logic.service';
 import { GameModeService } from 'src/app/game-mode.service';
+import { GameStatusService } from 'src/app/game-status.service';
 import { typeGameMode } from 'src/app/shared/game-mode';
 
 @Component({
@@ -15,30 +16,31 @@ export class GameControlsComponent implements OnInit, DoCheck {
   currentWord?: string;
   currentRoute: string;
   condition: boolean = true;
-  isStarted: boolean;
+  isStarted?: boolean;
   wordAudio: HTMLAudioElement;
   answer: boolean = false;
   alreadySaid: boolean = false;
-  constructor(private _gameMode: GameModeService, private _gameLogic: GameLogicService, private router: Router) {
+  constructor(private _gameMode: GameModeService, private _gameLogic: GameLogicService, private _gameStatus: GameStatusService ,private router: Router) {
     this.currentRoute = this.router.url;
-    this.isStarted = false;
     this.wordAudio = new Audio();
   }
 
   ngOnInit(): void {
     this.gameMode = this._gameMode.getGameMode();
     this.audio = this._gameLogic.getAudioSrc(0);
+    this.isStarted = this._gameStatus.getGameStatus();
   }
 
   ngDoCheck() {
     this.gameMode = this._gameMode.getGameMode();
     this.currentRoute = this.router.url;
     this.condition = this.currentRoute !== '/main';
+    this.isStarted = this._gameStatus.getGameStatus();
   }
 
   async startGame() {
     this._gameLogic.activateCards();
-    this.isStarted = true;
+    this._gameStatus.setActiveStatus();
     this.currentWord = this.audio[0];
     if (this.audio.length !== 0) {
       if (this.currentWord) {
@@ -62,7 +64,7 @@ export class GameControlsComponent implements OnInit, DoCheck {
       }
     } else {
       console.log('Congratulation!!!');
-      this.isStarted = false;
+      this._gameStatus.setInactiveStatus();
     }
   }
 

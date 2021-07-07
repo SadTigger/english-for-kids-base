@@ -52,7 +52,6 @@ export class GameLogicService {
   }
 
   game(card: CardComponent, audio: string) {
-    this.inactive.push(card);
     this.answer = audio === this.getCurrentWord();
     const newStar: Stars = {};
     this.isSoundPlayed = true;
@@ -75,6 +74,7 @@ export class GameLogicService {
       }, 1500)
       newStar.class = 'gold';
       this.rightWord = true;
+      this.inactive.push(card);
       card.setInactiveCard();
     }
     this._starsService.addStar(newStar);
