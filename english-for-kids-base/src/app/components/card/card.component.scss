@@ -13,6 +13,11 @@ $card-border-color: blue;
   perspective: 25rem;
   cursor: pointer;
   position: relative;
+
+  &.inactive {
+    pointer-events: none;
+    background:rgba(0, 0, 0, 0.5);
+  }
 }
 
 .card-container:hover > .card {

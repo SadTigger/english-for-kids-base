@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { CardsService } from './cards.service';
+import { CardComponent } from './components/card/card.component';
 import { CardsContent } from './shared/card-content';
 import { typeGameMode } from './shared/game-mode';
 import { Stars } from './shared/stars';
@@ -10,6 +11,7 @@ import { StarsService } from './stars.service';
 })
 export class GameLogicService {
   cards: CardsContent[][] = [];
+  inactive: CardComponent[] = [];
   audio: string[] = [];
   errorSound: string = 'assets/audio/error.wav'
   successSound: string = 'assets/audio/success.wav'
@@ -43,7 +45,14 @@ export class GameLogicService {
     this.currentWord = word;
   }
 
-  game(audio: string) {
+  activateCards() {
+    if (this.inactive.length === 8) {
+      this.inactive.forEach(card => card.setActiveCard())
+    }
+  }
+
+  game(card: CardComponent, audio: string) {
+    this.inactive.push(card);
     this.answer = audio === this.getCurrentWord();
     const newStar: Stars = {};
     this.isSoundPlayed = true;
@@ -66,6 +75,7 @@ export class GameLogicService {
       }, 1500)
       newStar.class = 'gold';
       this.rightWord = true;
+      card.setInactiveCard();
     }
     this._starsService.addStar(newStar);
   }

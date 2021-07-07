@@ -21,9 +21,11 @@ export class CardComponent implements DoCheck {
   mode!: typeGameMode;
   condition: boolean = true;
   currentWord?: string;
+  active: boolean;
 
   constructor(private _gameMode: GameModeService, private _gameLogic: GameLogicService) {
     this.mode = this._gameMode.getGameMode();
+    this.active = true;
   }
 
   ngDoCheck() {
@@ -55,7 +57,16 @@ export class CardComponent implements DoCheck {
 
   game() {
     if (this.mode === "train") return;
+    console.log('this card is: ', this);
     this.answer = this.audioSrc === this.currentWord ;
-    this._gameLogic.game(this.audioSrc);
+    this._gameLogic.game(this, this.audioSrc);
+  }
+
+  setInactiveCard() {
+    this.active = false;
+  }
+
+  setActiveCard() {
+    this.active = true;
   }
 }

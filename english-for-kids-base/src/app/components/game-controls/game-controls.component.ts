@@ -37,6 +37,7 @@ export class GameControlsComponent implements OnInit, DoCheck {
   }
 
   async startGame() {
+    this._gameLogic.activateCards();
     this.isStarted = true;
     this.currentWord = this.audio[0];
     if (this.audio.length !== 0) {

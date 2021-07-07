@@ -1,6 +1,6 @@
-<div class="card-container" [class.flipped]="isFlipped" (mouseleave)="isFlipped=false">
+<div class="card-container" [class.flipped]="isFlipped" (mouseleave)="isFlipped=false" [class.inactive]="!active">
   <div class="card">
-    <div class="card-back" (click)="$event.preventDefault();">
+    <div class="card-back" (click)="$event.preventDefault()">
       <div class="card-image"
         [ngStyle]="{
           'background-image': image ? 'url('+ image +')' : 'none',
@@ -15,6 +15,7 @@
         'background-image': mode === 'play' ? 'url('+ image +')' : 'none'
       }"
       (click)="mode === 'play' ? game() : playAudio($event)"
+      (click)="active ? $event.preventDefault() : false"
     >
       <div class="card-image"
         [ngStyle]="{'background-image': mode === 'train' ? 'url('+ image +')' : 'none', 'pointer-events': 'none'}"
