@@ -1,5 +1,6 @@
 import { Component, DoCheck, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CurrentCategoryService } from 'src/app/current-category.service';
 import { GameLogicService } from 'src/app/game-logic.service';
 import { GameModeService } from 'src/app/game-mode.service';
 import { GameStatusService } from 'src/app/game-status.service';
@@ -20,14 +21,22 @@ export class GameControlsComponent implements OnInit, DoCheck {
   wordAudio: HTMLAudioElement;
   answer: boolean = false;
   alreadySaid: boolean = false;
-  constructor(private _gameMode: GameModeService, private _gameLogic: GameLogicService, private _gameStatus: GameStatusService ,private router: Router) {
+  categoryId: number;
+  constructor(
+    private _gameMode: GameModeService,
+    private _gameLogic: GameLogicService,
+    private _gameStatus: GameStatusService,
+    private _currentCategory: CurrentCategoryService,
+    private router: Router
+  ) {
     this.currentRoute = this.router.url;
     this.wordAudio = new Audio();
+    this.categoryId = this._currentCategory.getCurrentCategory();
   }
 
   ngOnInit(): void {
     this.gameMode = this._gameMode.getGameMode();
-    this.audio = this._gameLogic.getAudioSrc(0);
+    this.audio = this._gameLogic.getAudioSrc(this.categoryId);
     this.isStarted = this._gameStatus.getGameStatus();
   }
 

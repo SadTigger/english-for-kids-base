@@ -69,7 +69,7 @@ export class CardsService {
       {word: 'dolphin', translation: 'дельфин', image: 'assets/img/dolphin.jpg', audioSrc: 'assets/audio/dolphin.mp3'},
     ],
     [
-      {word: 'apple', translation: 'яблоко', image: 'assets/img/apple.png', audioSrc: 'assets/audio/angry.mp3'},
+      {word: 'apple', translation: 'яблоко', image: 'assets/img/apple.png', audioSrc: 'assets/audio/apple.mp3'},
       {word: 'banana', translation: 'банан', image: 'assets/img/banana.png', audioSrc: 'assets/audio/banana.mp3'},
       {word: 'cherries', translation: 'вишня', image: 'assets/img/cherries.png', audioSrc: 'assets/audio/cherries.mp3'},
       {word: 'grapes', translation: 'виноград', image: 'assets/img/grapes.png', audioSrc: 'assets/audio/grapes.mp3'},

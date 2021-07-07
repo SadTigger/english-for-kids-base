@@ -17,6 +17,7 @@ export class CardComponent implements DoCheck {
   @Input() translation?: string;
   @Input() image?: string;
   @Input() audioSrc!: string;
+  @Input() id?: number;
   errorSound: string = 'assets/audio/error.wav'
   successSound: string = 'assets/audio/success.wav'
   answer!: boolean;
