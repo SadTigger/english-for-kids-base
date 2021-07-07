@@ -32,9 +32,9 @@ export class CardComponent implements DoCheck {
     this.currentWord = this._gameLogic.getCurrentWord();
   }
 
-  cardFlip(): void {
+  cardFlip(event: Event): void {
     if (this.isFlipped) return;
-
+    event.stopPropagation();
     this.isFlipped = true;
   }
 

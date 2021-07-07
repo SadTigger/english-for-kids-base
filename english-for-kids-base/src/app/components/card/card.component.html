@@ -21,7 +21,7 @@
       ></div>
       <div class="card-footer" *ngIf="mode === 'train'">
         <span *ngIf="word" [ngStyle]="{'pointer-events': 'none'}">{{ word }}</span>
-        <button mat-icon-button (click)="cardFlip()">
+        <button mat-icon-button (click)="cardFlip($event)">
           <mat-icon>sync</mat-icon>
         </button>
       </div>
