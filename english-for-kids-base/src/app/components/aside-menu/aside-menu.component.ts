@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { LoginComponent } from '../login/login.component';
 
@@ -7,12 +7,14 @@ import { LoginComponent } from '../login/login.component';
   templateUrl: './aside-menu.component.html',
   styleUrls: ['./aside-menu.component.scss']
 })
-export class AsideMenuComponent implements OnInit {
+export class AsideMenuComponent implements OnInit, DoCheck {
   isMenuOpen: boolean = false;
-  constructor(private  dialog:  MatDialog) { }
 
-  ngOnInit(): void {
-  }
+  constructor(private  dialog:  MatDialog) {}
+
+  ngOnInit(){}
+
+  ngDoCheck() {}
 
   onSidenavClick(): void {
     this.isMenuOpen = !this.isMenuOpen;

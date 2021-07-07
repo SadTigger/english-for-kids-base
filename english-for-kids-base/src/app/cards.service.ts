@@ -99,4 +99,8 @@ export class CardsService {
   getCards(id: number) {
     return this.cards[id];
   }
+
+  getAllCards() {
+    return this.cards;
+  }
 }

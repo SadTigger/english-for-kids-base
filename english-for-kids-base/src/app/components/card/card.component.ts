@@ -1,8 +1,7 @@
 import { Component, Input, Output, DoCheck } from '@angular/core';
+import { GameLogicService } from 'src/app/game-logic.service';
 import { GameModeService } from 'src/app/game-mode.service';
 import { typeGameMode } from 'src/app/shared/game-mode';
-import { Stars } from 'src/app/shared/stars';
-import { StarsService } from 'src/app/stars.service';
 
 @Component({
   selector: 'app-card',
@@ -11,24 +10,26 @@ import { StarsService } from 'src/app/stars.service';
 })
 export class CardComponent implements DoCheck {
   isFlipped: boolean = false;
-  isPlayed: boolean = false;
+  isSoundPlayed: boolean = false;
   @Input() word?: string;
   @Input() translation?: string;
   @Input() image?: string;
   @Input() audioSrc!: string;
+  errorSound: string = 'assets/audio/error.wav'
+  successSound: string = 'assets/audio/success.wav'
   answer!: boolean;
   mode!: typeGameMode;
   condition: boolean = true;
+  currentWord?: string;
 
-  constructor(private _starsService: StarsService, private _gameMode: GameModeService) {
+  constructor(private _gameMode: GameModeService, private _gameLogic: GameLogicService) {
     this.mode = this._gameMode.getGameMode();
   }
 
   ngDoCheck() {
-    // console.log('check');
     this.condition = this.mode === 'play';
     this.mode = this._gameMode.getGameMode();
-    // console.log('check this.mode', this.mode);
+    this.currentWord = this._gameLogic.getCurrentWord();
   }
 
   cardFlip(): void {
@@ -38,10 +39,9 @@ export class CardComponent implements DoCheck {
   }
 
   playAudio(event: Event): void {
-    // console.log('event.target', event.target);
     event.stopPropagation();
-    if (this.isPlayed) return;
-    this.isPlayed = true;
+    if (this.isSoundPlayed) return;
+    this.isSoundPlayed = true;
     if (this.mode !== "train") return;
 
     const audio = new Audio();
@@ -49,21 +49,13 @@ export class CardComponent implements DoCheck {
     audio.load();
     audio.play();
     setTimeout(() => {
-      this.isPlayed = false;
+      this.isSoundPlayed = false;
     }, 1500)
   }
 
   game() {
     if (this.mode === "train") return;
-    // console.log('this.audioSrc', this.audioSrc);
-    this.answer = this.audioSrc === 'assets/audio/cry.mp3';
-    // console.log('this.answer', this.answer);
-    const newStar: Stars = {};
-    if (!this.answer)  {
-      newStar.color = 'warn';
-    } else {
-      newStar.class = 'gold';
-    }
-    this._starsService.addStar(newStar);
+    this.answer = this.audioSrc === this.currentWord ;
+    this._gameLogic.game(this.audioSrc);
   }
 }

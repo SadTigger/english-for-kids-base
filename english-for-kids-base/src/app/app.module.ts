@@ -25,6 +25,9 @@ import { CardsService } from './cards.service';
 import { CategoryCardComponent } from './components/category-card/category-card.component';
 import { LoginComponent } from './components/login/login.component';
 import { GradeStarComponent } from './components/grade-star/grade-star.component';
+import { StartGameButtonComponent } from './components/start-game-button/start-game-button.component';
+import { GameControlsComponent } from './components/game-controls/game-controls.component';
+import { RepeatWordButtonComponent } from './components/repeat-word-button/repeat-word-button.component';
 
 @NgModule({
   declarations: [
@@ -48,6 +51,9 @@ import { GradeStarComponent } from './components/grade-star/grade-star.component
     CategoryCardComponent,
     LoginComponent,
     GradeStarComponent,
+    StartGameButtonComponent,
+    GameControlsComponent,
+    RepeatWordButtonComponent,
   ],
   entryComponents: [ LoginComponent ],
   imports: [

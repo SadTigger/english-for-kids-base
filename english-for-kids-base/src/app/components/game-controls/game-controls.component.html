@@ -1,0 +1,13 @@
+<div class="game-menu" *ngIf="currentRoute !== '/' && condition && gameMode === 'play'">
+  <app-start-game-button
+  *ngIf="!isStarted"
+  [ngStyle]="{'float':'right'}"
+  (click)="startGame()"
+>
+</app-start-game-button>
+<app-repeat-word-button
+  *ngIf="isStarted"
+  [ngStyle]="{'float':'right'}"
+  (click)="repeatWord()"
+></app-repeat-word-button>
+</div>
