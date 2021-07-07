@@ -13,11 +13,6 @@ export class CategoryCardComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
-
-  goTo(link: string) {
-
-  }
+  ngOnInit() {}
 
 }
