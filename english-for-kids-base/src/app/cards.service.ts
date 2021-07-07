@@ -100,8 +100,7 @@ export class CardsService {
       {id: 4, name: "Animals (set A)", link: "/animal-set-a", image: "assets/img/cat.jpg"},
       {id: 5, name: "Animals (set B)", link: "/animal-set-a", image: "assets/img/bird.jpg"},
       {id: 6, name: "Family members", link: "/family", image: "assets/img/grandfather.jpg"},
-      {id: 7, name: "Toys", link: "/toys", image: "assets/img/cat.jpg"},
-      {id: 8, name: "Fruits", link: "/fruits", image: "assets/img/apple.png"}
+      {id: 7, name: "Fruits", link: "/fruits", image: "assets/img/apple.png"}
     ]
   }
 
