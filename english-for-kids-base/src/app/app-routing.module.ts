@@ -13,23 +13,23 @@ import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.com
 import { StatisticsComponent } from './pages/statistics/statistics.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'main', pathMatch: 'full'},
-  {path: 'main', component: MainComponent},
-  {path: 'action-set-a', component: ActionSetAComponent},
-  {path: 'action-set-b', component: ActionSetBComponent},
-  {path: 'action-set-c', component: ActionSetCComponent},
-  {path: 'adjective', component: AdjectiveComponent},
-  {path: 'animal-set-a', component: AnimalSetAComponent},
-  {path: 'animal-set-b', component: AnimalSetBComponent},
-  {path: 'family', component: FamilyComponent},
-  {path: 'fruits', component: FruitsComponent},
-  {path: 'statistics', component: StatisticsComponent},
-  {path: '**', component: PageNotFoundComponent}
+  { path: '', redirectTo: 'main', pathMatch: 'full' },
+  { path: 'main', component: MainComponent },
+  { path: 'action-set-a', component: ActionSetAComponent },
+  { path: 'action-set-b', component: ActionSetBComponent },
+  { path: 'action-set-c', component: ActionSetCComponent },
+  { path: 'adjective', component: AdjectiveComponent },
+  { path: 'animal-set-a', component: AnimalSetAComponent },
+  { path: 'animal-set-b', component: AnimalSetBComponent },
+  { path: 'family', component: FamilyComponent },
+  { path: 'fruits', component: FruitsComponent },
+  { path: 'statistics', component: StatisticsComponent },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule { }
 export const routingComponents = [
@@ -43,5 +43,5 @@ export const routingComponents = [
   FruitsComponent,
   FamilyComponent,
   StatisticsComponent,
-  PageNotFoundComponent
-]
+  PageNotFoundComponent,
+];

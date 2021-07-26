@@ -1,26 +1,25 @@
-import { Component, DoCheck, OnInit } from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { GameModeService } from 'src/app/game-mode.service';
-import { typeGameMode } from 'src/app/shared/game-mode';
+import { GameModeType } from 'src/app/shared/game-mode';
 import { LoginComponent } from '../login/login.component';
 
 @Component({
   selector: 'app-aside-menu',
   templateUrl: './aside-menu.component.html',
-  styleUrls: ['./aside-menu.component.scss']
+  styleUrls: ['./aside-menu.component.scss'],
 })
-export class AsideMenuComponent implements OnInit, DoCheck {
-  isMenuOpen: boolean = false;
-  mode: typeGameMode;
+export class AsideMenuComponent implements DoCheck {
+  isMenuOpen = false;
 
-  constructor(private  dialog:  MatDialog, private _gameMode: GameModeService) {
-    this.mode = this._gameMode.getGameMode();
+  mode: GameModeType;
+
+  constructor(private dialog: MatDialog, private gameMode: GameModeService) {
+    this.mode = this.gameMode.getGameMode();
   }
 
-  ngOnInit(){}
-
-  ngDoCheck() {
-    this.mode = this._gameMode.getGameMode();
+  ngDoCheck(): void {
+    this.mode = this.gameMode.getGameMode();
   }
 
   onSidenavClick(): void {
@@ -35,5 +34,4 @@ export class AsideMenuComponent implements OnInit, DoCheck {
     dialogConfig.height = '571px';
     this.dialog.open(LoginComponent, dialogConfig);
   }
-
 }

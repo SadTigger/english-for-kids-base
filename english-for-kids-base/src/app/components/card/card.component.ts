@@ -1,43 +1,61 @@
-import { Component, Input, Output, DoCheck } from '@angular/core';
+import { Component, Input, DoCheck } from '@angular/core';
+import { AUDIO_PLAY_DELAY } from 'src/app/constants/delay';
 import { GameLogicService } from 'src/app/game-logic.service';
 import { GameModeService } from 'src/app/game-mode.service';
 import { GameStatusService } from 'src/app/game-status.service';
-import { typeGameMode } from 'src/app/shared/game-mode';
-import { GameControlsComponent } from '../game-controls/game-controls.component';
+import { GameModeType } from 'src/app/shared/game-mode';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss']
+  styleUrls: ['./card.component.scss'],
 })
 export class CardComponent implements DoCheck {
-  isFlipped: boolean = false;
-  isSoundPlayed: boolean = false;
+  isFlipped = false;
+
+  isSoundPlayed = false;
+
   @Input() word?: string;
+
   @Input() translation?: string;
+
   @Input() image?: string;
+
   @Input() audioSrc!: string;
+
   @Input() id?: number;
-  errorSound: string = 'assets/audio/error.wav'
-  successSound: string = 'assets/audio/success.wav'
+
+  errorSound = 'assets/audio/error.wav';
+
+  successSound = 'assets/audio/success.wav';
+
   answer!: boolean;
-  mode: typeGameMode;
-  condition: boolean = true;
+
+  mode: GameModeType;
+
+  condition = true;
+
   currentWord?: string;
+
   active: boolean;
+
   isGameStarted!: boolean;
 
-  constructor(private _gameMode: GameModeService, private _gameLogic: GameLogicService, private _gameStatus: GameStatusService) {
-    this.mode = this._gameMode.getGameMode();
+  constructor(
+    private gameMode: GameModeService,
+    private gameLogic: GameLogicService,
+    private gameStatus: GameStatusService,
+  ) {
+    this.mode = this.gameMode.getGameMode();
     this.active = true;
-    this.isGameStarted = this._gameStatus.getGameStatus();
+    this.isGameStarted = this.gameStatus.getGameStatus();
   }
 
-  ngDoCheck() {
+  ngDoCheck(): void {
     this.condition = this.mode === 'play';
-    this.mode = this._gameMode.getGameMode();
-    this.currentWord = this._gameLogic.getCurrentWord();
-    this.isGameStarted = this._gameStatus.getGameStatus();
+    this.mode = this.gameMode.getGameMode();
+    this.currentWord = this.gameLogic.getCurrentWord();
+    this.isGameStarted = this.gameStatus.getGameStatus();
   }
 
   cardFlip(event: Event): void {
@@ -50,7 +68,7 @@ export class CardComponent implements DoCheck {
     event.stopPropagation();
     if (this.isSoundPlayed) return;
     this.isSoundPlayed = true;
-    if (this.mode !== "train") return;
+    if (this.mode !== 'train') return;
 
     const audio = new Audio();
     audio.src = this.audioSrc;
@@ -58,21 +76,21 @@ export class CardComponent implements DoCheck {
     audio.play();
     setTimeout(() => {
       this.isSoundPlayed = false;
-    }, 1500)
+    }, AUDIO_PLAY_DELAY);
   }
 
-  game() {
-    if (this.mode === "train") return;
+  game(): void {
+    if (this.mode === 'train') return;
     if (!this.isGameStarted) return;
-    this.answer = this.audioSrc === this.currentWord ;
-    this._gameLogic.game(this, this.audioSrc);
+    this.answer = this.audioSrc === this.currentWord;
+    this.gameLogic.game(this, this.audioSrc);
   }
 
-  setInactiveCard() {
+  setInactiveCard(): void {
     this.active = false;
   }
 
-  setActiveCard() {
+  setActiveCard(): void {
     this.active = true;
   }
 }

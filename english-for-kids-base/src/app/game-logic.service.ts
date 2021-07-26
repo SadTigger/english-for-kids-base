@@ -1,82 +1,87 @@
 import { Injectable } from '@angular/core';
 import { CardsService } from './cards.service';
 import { CardComponent } from './components/card/card.component';
+import { AUDIO_PLAY_DELAY } from './constants/delay';
 import { CardsContent } from './shared/card-content';
-import { typeGameMode } from './shared/game-mode';
+import { GameModeType } from './shared/game-mode';
 import { Stars } from './shared/stars';
 import { StarsService } from './stars.service';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GameLogicService {
   cards: CardsContent[][] = [];
+
   inactive: CardComponent[] = [];
+
   audio: string[] = [];
-  errorSound: string = 'assets/audio/error.wav'
-  successSound: string = 'assets/audio/success.wav'
+
+  errorSound = 'assets/audio/error.wav';
+
+  successSound = 'assets/audio/success.wav';
+
   answer!: boolean;
-  mode!: typeGameMode;
-  isSoundPlayed: boolean = false;
+
+  mode!: GameModeType;
+
+  isSoundPlayed = false;
+
   currentWord!: string;
-  rightWord: boolean = false;
-  constructor(private _cardsService: CardsService, private _starsService: StarsService) {
-    this.cards = this._cardsService.getAllCards();
+
+  rightWord = false;
+
+  constructor(private cardsService: CardsService, private starsService: StarsService) {
+    this.cards = this.cardsService.getAllCards();
   }
 
   getAudioSrc(id: number): string[] {
-    this.audio = this.cards[id].map(el => el.audioSrc).sort(() => Math.random() - 0.5);
+    this.audio = this.cards[id].map((el) => el.audioSrc).sort(() => Math.random() - 0.5);
     return this.audio;
   }
 
-  getWord(id: number) {
-  }
-
-  getCurrentWord() {
+  getCurrentWord(): string {
     return this.currentWord;
   }
 
-  async isRightWord() {
-    return this.rightWord
+  async isRightWord(): Promise<boolean> {
+    return this.rightWord;
   }
 
-  setCurrentWord(word: string) {
+  setCurrentWord(word: string): void {
     this.rightWord = false;
     this.currentWord = word;
   }
 
-  activateCards() {
+  activateCards(): void {
     if (this.inactive.length === 8) {
-      this.inactive.forEach(card => card.setActiveCard())
+      this.inactive.forEach((card) => card.setActiveCard());
     }
   }
 
-  game(card: CardComponent, audio: string) {
+  game(card: CardComponent, audio: string): void {
     this.answer = audio === this.getCurrentWord();
     const newStar: Stars = {};
     this.isSoundPlayed = true;
-    if (!this.answer)  {
-      const warning = new Audio();
+    if (!this.answer) {
+      const warning: HTMLAudioElement = new Audio();
       warning.src = this.errorSound;
       warning.load();
       warning.play();
-      setTimeout(() => {
-        this.isSoundPlayed = false;
-      }, 1500)
       newStar.color = 'warn';
     } else {
       const success = new Audio();
       success.src = this.successSound;
       success.load();
       success.play();
-      setTimeout(() => {
-        this.isSoundPlayed = false;
-      }, 1500)
       newStar.class = 'gold';
       this.rightWord = true;
       this.inactive.push(card);
       card.setInactiveCard();
     }
-    this._starsService.addStar(newStar);
+    setTimeout(() => {
+      this.isSoundPlayed = false;
+    }, AUDIO_PLAY_DELAY);
+    this.starsService.addStar(newStar);
   }
 }

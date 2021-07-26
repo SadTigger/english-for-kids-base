@@ -5,16 +5,20 @@ import { StarsService } from 'src/app/stars.service';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent implements OnInit {
-  @Input() answer: boolean = false;
-  class = 'gold';
-  color = 'warn';
-  stars: Stars[] = [];
-  constructor(private _starsService: StarsService) {}
+  @Input() answer = false;
 
-  ngOnInit() {
-    this.stars = this._starsService.getStars();
+  class = 'gold';
+
+  color = 'warn';
+
+  stars: Stars[] = [];
+
+  constructor(private starsService: StarsService) {}
+
+  ngOnInit(): void {
+    this.stars = this.starsService.getStars();
   }
 }

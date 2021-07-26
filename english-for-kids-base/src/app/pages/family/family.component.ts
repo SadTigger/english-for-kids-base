@@ -6,16 +6,20 @@ import { CardsContent } from 'src/app/shared/card-content';
 @Component({
   selector: 'app-family',
   templateUrl: './family.component.html',
-  styleUrls: ['./family.component.scss']
+  styleUrls: ['./family.component.scss'],
 })
 export class FamilyComponent implements OnInit {
-  id: number = 7;
+  id = 7;
+
   cards: CardsContent[] = [];
 
-  constructor(private _cardsServices: CardsService, private _currentCategory: CurrentCategoryService) {}
+  constructor(
+    private cardsServices: CardsService,
+    private currentCategory: CurrentCategoryService,
+  ) {}
 
-  ngOnInit() {
-    this._currentCategory.setCategory(this.id);
-    this.cards = this._cardsServices.getCards(this.id);
+  ngOnInit(): void {
+    this.currentCategory.setCategory(this.id);
+    this.cards = this.cardsServices.getCards(this.id);
   }
 }

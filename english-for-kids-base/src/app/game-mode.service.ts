@@ -1,18 +1,17 @@
 import { Injectable } from '@angular/core';
-import { typeGameMode } from './shared/game-mode';
+import { GameModeType } from './shared/game-mode';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GameModeService {
-  gameMode: typeGameMode = 'train';
-  constructor() { }
+  gameMode: GameModeType = 'train';
 
-  toggleGameMode() {
-    this.gameMode = this.gameMode === 'train' ?  'play' : 'train';
+  toggleGameMode(): void {
+    this.gameMode = this.gameMode === 'train' ? 'play' : 'train';
   }
 
-  getGameMode() {
+  getGameMode(): GameModeType {
     return this.gameMode;
   }
 }

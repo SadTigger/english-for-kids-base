@@ -1,26 +1,24 @@
-import { Stars } from './shared/stars';
 import { Injectable } from '@angular/core';
+import { Stars } from './shared/stars';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class StarsService {
   stars: Stars[] = [
-    {class: 'gold'},
-    {color: 'warn'}
+    { class: 'gold' },
+    { color: 'warn' },
   ];
 
-  constructor() {}
-
-  addStar(newStar: Stars) {
+  addStar(newStar: Stars): void {
     this.stars.push(newStar);
   }
 
-  getStars() {
+  getStars(): Stars[] {
     return this.stars;
   }
 
-  clearStars() {
+  clearStars(): void {
     this.stars = [];
   }
 }

@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
 import { MainComponent } from './pages/main/main.component';
 import { AsideMenuComponent } from './components/aside-menu/aside-menu.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
 import { MaterialModule } from './material/material.module';
 import { StatisticsTableComponent } from './components/statistics-table/statistics-table.component';
 import { HeaderComponent } from './components/header/header.component';
@@ -57,15 +57,15 @@ import { FamilyComponent } from './pages/family/family.component';
     RepeatWordButtonComponent,
     FamilyComponent,
   ],
-  entryComponents: [ LoginComponent ],
+  entryComponents: [LoginComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    MaterialModule
+    MaterialModule,
   ],
   providers: [CardsService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

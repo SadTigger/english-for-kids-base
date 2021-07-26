@@ -6,16 +6,20 @@ import { CardsContent } from 'src/app/shared/card-content';
 @Component({
   selector: 'app-action-set-c',
   templateUrl: './action-set-c.component.html',
-  styleUrls: ['./action-set-c.component.scss']
+  styleUrls: ['./action-set-c.component.scss'],
 })
 export class ActionSetCComponent implements OnInit {
-  id: number = 2;
+  id = 2;
+
   cards: CardsContent[] = [];
 
-  constructor(private _cardsServices: CardsService, private _currentCategory: CurrentCategoryService) {}
+  constructor(
+    private cardsServices: CardsService,
+    private currentCategory: CurrentCategoryService,
+  ) {}
 
-  ngOnInit() {
-    this._currentCategory.setCategory(this.id);
-    this.cards = this._cardsServices.getCards(this.id);
+  ngOnInit(): void {
+    this.currentCategory.setCategory(this.id);
+    this.cards = this.cardsServices.getCards(this.id);
   }
 }

@@ -1,21 +1,20 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class GameStatusService {
-  gameStatus: boolean = false;
-  constructor() { }
+  gameStatus = false;
 
-  setActiveStatus() {
+  setActiveStatus(): void {
     this.gameStatus = true;
   }
 
-  setInactiveStatus() {
+  setInactiveStatus(): void {
     this.gameStatus = false;
   }
 
-  getGameStatus() {
+  getGameStatus(): boolean {
     return this.gameStatus;
   }
 }

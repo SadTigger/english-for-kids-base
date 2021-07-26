@@ -6,16 +6,20 @@ import { CardsContent } from 'src/app/shared/card-content';
 @Component({
   selector: 'app-action-set-b',
   templateUrl: './action-set-b.component.html',
-  styleUrls: ['./action-set-b.component.scss']
+  styleUrls: ['./action-set-b.component.scss'],
 })
-export class ActionSetBComponent  implements OnInit {
-  id: number = 1;
+export class ActionSetBComponent implements OnInit {
+  id = 1;
+
   cards: CardsContent[] = [];
 
-  constructor(private _cardsServices: CardsService, private _currentCategory: CurrentCategoryService) {}
+  constructor(
+    private cardsServices: CardsService,
+    private currentCategory: CurrentCategoryService,
+  ) {}
 
-  ngOnInit() {
-    this._currentCategory.setCategory(this.id);
-    this.cards = this._cardsServices.getCards(this.id);
+  ngOnInit(): void {
+    this.currentCategory.setCategory(this.id);
+    this.cards = this.cardsServices.getCards(this.id);
   }
 }

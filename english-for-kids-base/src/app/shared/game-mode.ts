@@ -1,5 +1,5 @@
-export type typeGameMode = 'train' | 'play';
+export type GameModeType = 'train' | 'play';
 
 export interface GameMode {
-  string: typeGameMode;
+  string: GameModeType;
 }

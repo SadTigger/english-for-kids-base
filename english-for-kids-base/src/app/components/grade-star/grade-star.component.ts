@@ -1,17 +1,12 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-grade-star',
   templateUrl: './grade-star.component.html',
-  styleUrls: ['./grade-star.component.scss']
+  styleUrls: ['./grade-star.component.scss'],
 })
-export class GradeStarComponent implements OnInit {
+export class GradeStarComponent {
   @Input() gradeClass?: string;
+
   @Input() gradeColor?: string;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
 }
